@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.liukun.androideasymvp">
+
+    <application
+        android:name="com.liukun.androideasymvp.commom.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:theme="@style/AppTheme">
+        <!-- 友盟多渠道（在 App Gradle 中配置，请不要在此处修改） -->
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${channel}" />
+        <!--今日头条屏幕适配方案常 -->
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="540"/>
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="960"/>
+        <!-- 适配 Android 7.0 文件意图 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
+        <!-- 引导界面 -->
+        <activity
+            android:name="com.liukun.androideasymvp.ui.activity.GuideActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <!-- 闪屏界面 -->
+        <activity
+            android:name="com.liukun.androideasymvp.ui.activity.SplashActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+
+            <!-- 程序入口 -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- App 首页 -->
+        <activity
+            android:name="com.liukun.androideasymvp.ui.activity.HomeActivity"
+            android:alwaysRetainTaskState="true"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <activity android:name="com.liukun.androideasymvp.ui.activity.CopyActivity"/>
+        <activity android:name="com.liukun.androideasymvp.MainActivity"/>
+        <activity android:name="com.liukun.androideasymvp.ui.activity.BrowserActivity" />
+
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>
