@@ -1,11 +1,6 @@
 # AndroidEasyMVP
 Android 快速MVP开发框架  只是自己练手 和开发用的
-
- ## TOTO
-  图片库的策略
-  
-  
- 
+   
  # 使用
  ```
       //单选多选框
