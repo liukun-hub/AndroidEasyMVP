@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -35,7 +35,7 @@ public class RetrofitFactory {
     public void init(String baseUrl) {
         retrofit = new Retrofit.Builder().
                 addConverterFactory(GsonConverterFactory.create()).             //设置gson转换器,将返回的json数据转为实体
-                addCallAdapterFactory(RxJavaCallAdapterFactory.create()).       //设置CallAdapter
+                addCallAdapterFactory(RxJava2CallAdapterFactory.create()).       //设置CallAdapter
                 baseUrl(baseUrl).
                 client(client)                                                  //设置客户端okhttp相关参数
                 .build();

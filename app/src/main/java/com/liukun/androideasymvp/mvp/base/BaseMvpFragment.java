@@ -74,7 +74,6 @@ public abstract class BaseMvpFragment extends MyFragment<BaseMvpActivity> implem
 
     @Override
     protected void initView() {
-        Log.d("ssss", "initView: " + "aaaa");
 
     }
 

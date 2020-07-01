@@ -5,7 +5,8 @@ import com.liukun.androideasymvp.mvp.base.IBaseView;
 import com.liukun.androideasymvp.ui.bean.ArticleListBean;
 import com.liukun.base.net.BaseResponse;
 
-import rx.Observable;
+import io.reactivex.Observable;
+
 
 /**
  * Author: liukun on 2020/6/26.

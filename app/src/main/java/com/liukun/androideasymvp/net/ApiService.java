@@ -5,9 +5,9 @@ import com.liukun.androideasymvp.ui.bean.ArticleListBean;
 import com.liukun.androideasymvp.ui.bean.ChaptersDetailBean;
 import com.liukun.base.net.BaseResponse;
 
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import rx.Observable;
 
 
 /**

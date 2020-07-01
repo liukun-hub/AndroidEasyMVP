@@ -8,9 +8,9 @@ import com.liukun.androideasymvp.ui.bean.ArticleListBean;
 import com.liukun.base.net.BaseResponse;
 import com.liukun.base.net.RetrofitFactory;
 
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Author: liukun on 2020/6/26.

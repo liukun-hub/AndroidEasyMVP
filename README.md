@@ -57,6 +57,37 @@ Android 快速MVP开发框架  只是自己练手 和开发用的
                             Log.d("ssss", "onCompleted:ww ");
                         }
                     });
+
+
+        Rx2
+                
+                 RetrofitFactory.getInstance()
+                                .create(ApiService.class)
+                                .getArticleList(page)
+                                .subscribeOn(Schedulers.io())
+                                .unsubscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(new Observer<BaseResponse<ArticleListBean>>() {
+                                    @Override
+                                    public void onSubscribe(Disposable d) {
+                
+                                    }
+                
+                                    @Override
+                                    public void onNext(BaseResponse<ArticleListBean> articleListBeanBaseResponse) {
+                
+                                    }
+                
+                                    @Override
+                                    public void onError(Throwable e) {
+                
+                                    }
+                
+                                    @Override
+                                    public void onComplete() {
+                
+                                    }
+                                });
 ```
 
 ```

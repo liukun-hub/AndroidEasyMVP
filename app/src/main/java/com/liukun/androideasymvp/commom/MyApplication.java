@@ -18,6 +18,8 @@ import com.liukun.androideasymvp.net.ApiService;
 import com.liukun.base.helper.ActivityStackManager;
 import com.liukun.base.helper.LogUtil;
 import com.liukun.base.net.RetrofitFactory;
+import com.liukun.base.net.imageloader.ImageLoader;
+import com.liukun.base.net.imageloader.glide.GlideImageLoaderStrategy;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
@@ -53,6 +55,9 @@ public class MyApplication extends Application {
 
         //日志工具
         LogUtil.init(true, "logUntil");
+
+        //配置图片加载策略
+        ImageLoader.setImageStrategy(new GlideImageLoaderStrategy());
 
         //设置初始url
         RetrofitFactory.getInstance().init(ApiService.HOST);

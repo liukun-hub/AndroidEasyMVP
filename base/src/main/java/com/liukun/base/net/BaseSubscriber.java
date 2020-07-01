@@ -2,27 +2,32 @@ package com.liukun.base.net;
 
 import android.accounts.NetworkErrorException;
 import android.content.Context;
-import android.net.ParseException;
-import android.widget.Toast;
 
 import com.google.gson.JsonParseException;
 
 import org.json.JSONException;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+
 
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
+import java.text.ParseException;
 import java.util.concurrent.TimeoutException;
 
-import rx.Subscriber;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.subscribers.ResourceSubscriber;
 
 /**
  * Author: liukun on 2020/6/7.
  * Mail  : 3266817262@qq.com
  * Description:主要是请求成功失败、网络异常时的回调,它实现的Observer类,其中成功失败主要在Onext方法里处理
  */
-public abstract class BaseSubscriber<T> extends Subscriber<T> {
+public abstract class BaseSubscriber<T> implements Subscriber<T> {
 //    private Context mContext;
+
+
 
     public BaseSubscriber(Context mContext) {
 //        this.mContext = mContext;
@@ -32,7 +37,7 @@ public abstract class BaseSubscriber<T> extends Subscriber<T> {
     }
 
     @Override
-    public void onCompleted() {
+    public void onComplete() {
 
     }
 
@@ -68,9 +73,9 @@ public abstract class BaseSubscriber<T> extends Subscriber<T> {
 
     //请求成功且返回码为200的回调方法,这里抽象方法申明
     public abstract void onSuccess(T t) ;
-
-    //请求成功但返回的code码不是200的回调方法,这里抽象方法申明
-    public abstract void onCodeError(BaseResponse baseResponse);
+//
+//    //请求成功但返回的code码不是200的回调方法,这里抽象方法申明
+//    public abstract void onCodeError(BaseResponse baseResponse);
 
     //请求失败回调方法,这里抽象方法申明
     public abstract void onFailure(Throwable e,String message) ;
